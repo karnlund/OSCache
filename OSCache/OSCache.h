@@ -38,6 +38,12 @@
 - (NSUInteger)count;
 - (NSUInteger)totalCost;
 
+// Kurt Arnlund - Ingenious Arts and Technologies LLC - 8/16/2014
+// added object subscripting so that ELAWellCached could work with this cache.
+// NSCache may have supported object subscripting as well since ELAWellCached made use of it.
+- (id)objectForKeyedSubscript:(id <NSCopying>)key;
+- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
+
 @end
 
 
