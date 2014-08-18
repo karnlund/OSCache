@@ -240,14 +240,6 @@
     }
 }
 
-// Kurt Arnlund - Ingenious Arts and Technologies LLC - 8/16/2014
-// added object subscripting so that ELAWellCached could work with this cache.
-// NSCache may have supported object subscripting as well since ELAWellCached made use of it.
-- (id)objectForKeyedSubscript:(id <NSCopying>)key
-{
-	return [self objectForKey:key];
-}
-
 - (id)objectForKey:(id)key
 {
     [_lock lock];
@@ -260,14 +252,6 @@
     id object = entry.object;
     [_lock unlock];
     return object;
-}
-
-// Kurt Arnlund - Ingenious Arts and Technologies LLC - 8/16/2014
-// added object subscripting so that ELAWellCached could work with this cache.
-// NSCache may have supported object subscripting as well since ELAWellCached made use of it.
-- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key
-{
-	[self setObject:obj forKey:key];
 }
 
 - (void)setObject:(id)obj forKey:(id)key
@@ -337,6 +321,22 @@
     [invocation invokeWithTarget:nil];
 }
 
+// Kurt Arnlund - Ingenious Arts and Technologies LLC - 8/16/2014
+// added object subscripting so that ELAWellCached could work with this cache.
+// NSCache may have supported object subscripting as well since ELAWellCached made use of it.
+- (id)objectForKeyedSubscript:(id <NSCopying>)key
+{
+	return [self objectForKey:key];
+}
+
+// Kurt Arnlund - Ingenious Arts and Technologies LLC - 8/16/2014
+// added object subscripting so that ELAWellCached could work with this cache.
+// NSCache may have supported object subscripting as well since ELAWellCached made use of it.
+- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key
+{
+	[self setObject:obj forKey:key];
+}
+
 @end
 
 
@@ -356,5 +356,22 @@
 {
     return 0;
 }
+
+// Kurt Arnlund - Ingenious Arts and Technologies LLC - 8/16/2014
+// added object subscripting so that ELAWellCached could work with this cache.
+// NSCache may have supported object subscripting as well since ELAWellCached made use of it.
+- (id)objectForKeyedSubscript:(id <NSCopying>)key
+{
+	return [self objectForKey:key];
+}
+
+// Kurt Arnlund - Ingenious Arts and Technologies LLC - 8/16/2014
+// added object subscripting so that ELAWellCached could work with this cache.
+// NSCache may have supported object subscripting as well since ELAWellCached made use of it.
+- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key
+{
+	[self setObject:obj forKey:key];
+}
+
 
 @end
